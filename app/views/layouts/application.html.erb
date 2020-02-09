@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SeichiSearch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/5ea21ceab0.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <footer>
+      <!-- 画像や文章を他者から引用した場合は引用元の情報を記載してください -->
+    </footer>
+  </body>
+</html>

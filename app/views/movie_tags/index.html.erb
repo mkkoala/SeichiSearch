@@ -1,0 +1,60 @@
+<h2>映画タグ登録</h2>
+<!-- <%# if @movie_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%#= @movie_tag.errors.count %> errors prohibited this obj from being saved:</h2>
+      <ul>
+      <%# @movie_tag.errors.full_messages.each do |message| %>
+        <li><%#= message %></li>
+      <%# end %>
+      </ul>
+    </div>
+<%# end %> -->
+
+<%= form_for(@movie_tag) do |f| %>
+
+	<%= f.attachment_field :movie_image %>
+
+	<h4>タイトル</h4>
+	<%= f.text_field :title %>
+
+	<h4>内容</h4>
+	<%= f.text_area :body %>
+
+	<br>
+	<br>
+
+	<p>※画像や文章を他者から引用した場合は引用元の情報を記載してください</p>
+	<%= f.submit '新規登録' %>
+
+<% end %>
+
+
+
+<h2>映画タグ一覧</h2>
+<table class='table table-responsive'>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movie_tags.each do |movie_tag| %>
+      <tr>
+        <td><%= movie_tag.title %></td>
+        <td><%= link_to "詳細", movie_tag_path(movie_tag.id) %></td>
+        <%# if user_signed_in? && @user.id == current_user.id %>
+	        <td><%= link_to "編集する", edit_movie_tag_path(movie_tag.id) %></td>
+	        <td><%= link_to "削除する", movie_tag_path(movie_tag.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+	    <%# end %>
+      </tr>
+    <% end %>
+    <%= paginate @movie_tags, class: "paginate" %>
+  </tbody>
+</table>
+
+

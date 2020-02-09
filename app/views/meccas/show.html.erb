@@ -1,0 +1,37 @@
+<%= link_to user_path(@mecca.user) do %>
+	<nobr>(<%= @mecca.user.name %>　さんの投稿)</nobr>
+	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %><br>
+<% end %>
+
+<%= attachment_image_tag(@mecca, :mecca_image, :fill, 200, 200, fallback: "no_image_2.jpg") %>
+
+<h3><%= @mecca.name %></h3>
+
+<p><%= @mecca.body %></p>
+
+<% @movie_tags.each do |movie_tag| %>
+	<%= movie_tag.title %>
+<% end %>
+
+<p>いいね数　<%= @mecca.favorites.count %>件</p>
+
+<% if @mecca.favorited_by?(current_user) %>
+  	<%= link_to mecca_favorites_path(@mecca), class: "btn-sm btn-warning", method: :delete do %>
+	  <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+	  いいねを解除する
+	<% end %>
+<% else %>
+	 <%= link_to mecca_favorites_path(@mecca), class: "btn-sm btn-warning", method: :mecca do %>
+	  <i class="fa fa-heart-o" aria-hidden="true"></i>
+	  いいねに追加する
+	<% end %>
+<% end %>
+
+<% if user_signed_in? && @mecca.user.id == current_user.id %>
+	<%= link_to "編集する",edit_mecca_path(@mecca), class: "btn-sm btn-success edit_mecca_#{@mecca.id}" %>
+	<%= link_to "削除する",@mecca, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+<% end %>
+
+<h4>〒 <%= @mecca.post_code %></h4>
+
+<h4><%= @mecca.address %></h4>

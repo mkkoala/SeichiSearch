@@ -1,0 +1,90 @@
+<h2>プロフィール</h2>
+
+<h3>登録情報</h3>
+
+<% if user_signed_in? && @user.id == current_user.id %>
+	<div class="row">
+		<%= link_to '　編集する',edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
+	</div>
+
+	<div class="row">
+		<%= link_to "　パスワードを変更する", edit_user_registration_path, class: "col-xs-12 btn btn-default glyphicon glyphicon-edit" %>
+	</div>
+<% end %>
+
+<table class="table">
+	<tr>
+		<th><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></th>
+	</tr>
+
+	<tr>
+		<th>名前</th>
+		<th><%= @user.name %></th>
+	</tr>
+
+</table>
+
+<!-- 会員投稿聖地一覧 -->
+<h3>投稿聖地</h3>
+	<table class="table table-hover table-responsive">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @meccas.each do |mecca| %>
+			<tr>
+				<td><%= mecca.name %></td>
+				<td><%= link_to "詳細", mecca, class: "mecca_#{mecca.id}" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<!-- 会員投稿聖地一覧 -->
+
+<!-- 会員投稿映画タグ一覧 -->
+<h3>投稿映画タグ</h3>
+	<table class="table table-hover table-responsive">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @movie_tags.each do |movie_tag| %>
+			<tr>
+				<td><%= movie_tag.title %></td>
+				<td><%= link_to "詳細", movie_tag, class: "movie_tag_#{movie_tag.id}" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<!-- 会員投稿映画タグ一覧 -->
+
+<!-- 会員いいね一覧 -->
+<h3>いいね</h3>
+	<table class="table table-hover table-responsive">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @favorites.each do |favorite| %>
+			<tr>
+				<td><%= favorite.mecca.name %></td>
+				<td><%= link_to "詳細", mecca_path(favorite.mecca.id), class: "mecca_#{favorite.mecca.id}" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<!-- 会員いいね一覧 -->
+
+

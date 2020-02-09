@@ -1,0 +1,12 @@
+<h2>映画タグ詳細</h2>
+
+<%= link_to user_path(@movie_tag.user) do %>
+	<nobr>(<%= @movie_tag.user.name %>　さんの投稿)</nobr>
+	<%= attachment_image_tag(@movie_tag.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %><br>
+<% end %>
+
+<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, :class => "img-rounded" %>
+<h4><%= @movie_tag.title %></h4>
+<p><%= @movie_tag.body %></p>
+
+<%#= link_to "この映画の聖地一覧へ" ,"/meccas?movie_tag_id=#{movie_tag.id}" %>

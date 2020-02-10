@@ -1,11 +1,11 @@
-<h2>商品一覧</h2>
+<h2>聖地一覧</h2>
 	<p style="padding-left: 20px;">
 		(<% if params[:movie_tag_id] %>
 			<%= @movie_tag.title %>
 		<% else %>
 			<nobr>ALL</nobr>
 		<% end %>
-		　全<%= @count %>件)
+		　全<%= @meccas.count %>件)
 	</p>
 
 	<% @meccas.each do |mecca| %>
@@ -21,6 +21,14 @@
 	    	<% end %>
 	    </p>
 
+	    <% mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
+	    	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
+				<p class="label label-default"><%= meccas_movie_tags.movie_tag.title %></p>
+			<% end %>
+		<% end %>
+
+		<p><%= mecca.address %></p>
+
 		</div>
 	<% end %>
 	<%= paginate @meccas, class: "paginate" %>
@@ -28,8 +36,7 @@
 
 <!-- ここからジャンル検索リンク一覧部分 -->
 <h3>映画タグ検索</h3>
-
-<%# @movie_tags.each do |movie_tag| %>
-	<%#= link_to movie_tag.title ,"/products?movie_tag_id=#{movie_tag.id}" %><br>
-<%# end %>
+<% @meccas_movie_tags.each do |meccas_movie_tags| %>
+	<%= link_to meccas_movie_tags.movie_tag.title ,meccas_movie_tags_path(meccas_movie_tags.movie_tag_id) %><br>
+<% end %>
 <!-- ここまでジャンル検索リンク一覧部分 -->

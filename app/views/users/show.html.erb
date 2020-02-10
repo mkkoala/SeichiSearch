@@ -38,7 +38,7 @@
 			<% @meccas.each do |mecca| %>
 			<tr>
 				<td><%= mecca.name %></td>
-				<td><%= link_to "詳細", mecca, class: "mecca_#{mecca.id}" %></td>
+				<td><%= link_to "詳細", mecca_path(mecca.id) %></td>
 			</tr>
 			<% end %>
 		</tbody>
@@ -80,7 +80,7 @@
 			<% @favorites.each do |favorite| %>
 			<tr>
 				<td><%= favorite.mecca.name %></td>
-				<td><%= link_to "詳細", mecca_path(favorite.mecca.id), class: "mecca_#{favorite.mecca.id}" %></td>
+				<td><%= link_to "詳細", mecca_path(favorite.mecca.id) %></td>
 			</tr>
 			<% end %>
 		</tbody>

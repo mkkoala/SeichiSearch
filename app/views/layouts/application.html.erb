@@ -11,10 +11,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
 
-    <footer>
-      <!-- 画像や文章を他者から引用した場合は引用元の情報を記載してください -->
-    </footer>
+    <div class='body'>
+      <div class='container'>
+
+        <p id="notice"><%= notice %></p>
+
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

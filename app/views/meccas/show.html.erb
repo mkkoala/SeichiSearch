@@ -1,19 +1,27 @@
-<%= link_to user_path(@mecca.user) do %>
+<%= link_to user_path(@mecca.user), class: "pull-right" do %>
 	<nobr>(<%= @mecca.user.name %>　さんの投稿)</nobr>
 	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %><br>
 <% end %>
 
-<%= attachment_image_tag(@mecca, :mecca_image, :fill, 200, 200, fallback: "no_image_2.jpg") %>
+
+<%= attachment_image_tag(@mecca, :mecca_image, :fill, 300, 300, fallback: "no_image_2.jpg") %>
+
 
 <h3><%= @mecca.name %></h3>
 
+
 <p><%= @mecca.body %></p>
 
-<% @movie_tags.each do |movie_tag| %>
-	<%= movie_tag.title %>
+
+<% @mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
+	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
+		<p class="label label-default"><%= meccas_movie_tags.movie_tag.title %></p>
+	<% end %>
 <% end %>
 
+
 <p>いいね数　<%= @mecca.favorites.count %>件</p>
+
 
 <% if @mecca.favorited_by?(current_user) %>
   	<%= link_to mecca_favorites_path(@mecca), class: "btn-sm btn-warning", method: :delete do %>
@@ -27,11 +35,72 @@
 	<% end %>
 <% end %>
 
+
 <% if user_signed_in? && @mecca.user.id == current_user.id %>
 	<%= link_to "編集する",edit_mecca_path(@mecca), class: "btn-sm btn-success edit_mecca_#{@mecca.id}" %>
 	<%= link_to "削除する",@mecca, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
 <% end %>
 
+
 <h4>〒 <%= @mecca.post_code %></h4>
 
+
 <h4><%= @mecca.address %></h4>
+
+
+
+
+
+
+
+
+
+<!-- コメント入力フォーム -->
+<%= form_for @mecca_comment, url: mecca_mecca_comments_path(@mecca.id), method: :post do |f| %>
+    <div class="row">
+        <div class="col-sm-12">
+            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+        </div>
+    </div>
+    <%= f.submit "送信する", class: "pull-right" %>
+<% end %>
+<!-- コメント入力フォーム -->
+
+<!-- コメント一覧 -->
+<table class="table">
+	<% @mecca.mecca_comments.each do |mecca_comment| %>
+        <tr class="comment">
+            <div class="comment-body bb">
+            <td>
+	            <div class="comment-avatar">
+	              <div class="avatar">
+	                <%= attachment_image_tag mecca_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+	              </div>
+	            </div>
+	        </td>
+	        <td>
+	            <div class="comment-text">
+		            <div class="comment-author clearfix">
+		                <%= link_to mecca_comment.user.name,user_path(mecca_comment.user) %></a>
+		                <span class="comment-meta">
+		                  <span class="comment-date"><%= @mecca.created_at.strftime('%Y/%m/%d') %></span>
+		                </span>
+		            </div>
+		            <div class="comment-entry"><%= mecca_comment.comment %></div>
+	            </div>
+	        </td>
+	        <td>
+	            <% if user_signed_in? && mecca_comment.user.id == current_user.id %>
+	            <div class="comment-destroy">
+	            	<%= link_to "削除する",mecca_mecca_comments_path(@mecca.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+	            </div>
+	            <% end %>
+
+            </div>
+        	</td>
+        </tr>
+    <% end %>
+</table>
+<!-- コメント一覧 -->
+
+

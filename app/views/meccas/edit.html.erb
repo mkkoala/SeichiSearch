@@ -8,6 +8,8 @@
 
 	<p>説明<%= f.text_area :body, :size=>"60x10" %></p>
 
+	<p>映画タグ<%= f.collection_check_boxes :movie_tag_ids, MovieTag.all, :id, :title %></p>
+
 	<p>郵便番号<%= f.text_field :post_code, :size=>"15" %></p>
 
 	<p>住所<%= f.text_field :address, :size=>"60" %></p>

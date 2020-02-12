@@ -1,42 +1,63 @@
 <h2>聖地一覧</h2>
-	<p style="padding-left: 20px;">
-		(<% if params[:movie_tag_id] %>
-			<%= @movie_tag.title %>
-		<% else %>
-			<nobr>ALL</nobr>
+
+	<%= link_to "新規投稿画面へ",new_mecca_path %>
+
+<div class="row">
+
+
+		<!-- ここからジャンル検索リンク一覧部分 -->
+	<div class="col-md-2">
+		<h3>映画タグ検索</h3>
+		<% @meccas_movie_tags.each do |meccas_movie_tags| %>
+			<%= link_to meccas_movie_tags.movie_tag.title ,meccas_movie_tags_path(meccas_movie_tags.movie_tag_id) %><br>
 		<% end %>
-		　全<%= @meccas.count %>件)
-	</p>
+	</div>
+	<!-- ここまでジャンル検索リンク一覧部分 -->
 
-	<% @meccas.each do |mecca| %>
-		<div>
 
-		<%= link_to mecca_path(mecca.id) do %>
-			<%= attachment_image_tag mecca, :mecca_image, :fill, 200, 180, :class => "img-rounded" %>
-		<% end %>
 
-	    </p>
-	    	<%= link_to mecca_path(mecca.id) do %>
-	    		<%= mecca.name %>
-	    	<% end %>
-	    </p>
+	<div class="col-md-10">
 
-	    <% mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
-	    	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
-				<p class="label label-default"><%= meccas_movie_tags.movie_tag.title %></p>
+		<div class="row">
+
+		<p style="padding-left: 20px;">
+			(<% if params[:movie_tag_id] %>
+				<%= @movie_tag.title %>
+			<% else %>
+				<nobr>ALL</nobr>
 			<% end %>
-		<% end %>
+			　全<%= @meccas.count %>件)
+		</p>
 
-		<p><%= mecca.address %></p>
+		<% @meccas.each do |mecca| %>
+			<div class="col-sm-4" style="padding-bottom: 50px;">
+
+			<%= link_to mecca_path(mecca.id) do %>
+				<%= attachment_image_tag mecca, :mecca_image, :fill, 200, 180, :class => "img-rounded" %>
+			<% end %>
+
+		    </p>
+		    	<%= link_to mecca_path(mecca.id) do %>
+		    		<%= mecca.name %>
+		    	<% end %>
+		    </p>
+
+		    <% mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
+		    	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
+					<p class="label label-default"><%= meccas_movie_tags.movie_tag.title %></p>
+				<% end %>
+			<% end %>
+
+			<p><%= mecca.address %></p>
+
+			</div>
+		<% end %>
+		<%= paginate @meccas, class: "paginate" %>
 
 		</div>
-	<% end %>
-	<%= paginate @meccas, class: "paginate" %>
+
+	</div>
+
+</div>
 
 
-<!-- ここからジャンル検索リンク一覧部分 -->
-<h3>映画タグ検索</h3>
-<% @meccas_movie_tags.each do |meccas_movie_tags| %>
-	<%= link_to meccas_movie_tags.movie_tag.title ,meccas_movie_tags_path(meccas_movie_tags.movie_tag_id) %><br>
-<% end %>
-<!-- ここまでジャンル検索リンク一覧部分 -->

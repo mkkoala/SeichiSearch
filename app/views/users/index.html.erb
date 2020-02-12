@@ -6,10 +6,8 @@
       <th></th>
       <th>名前</th>
       <th>投稿聖地数</th>
-      <th>いいねされた数</th>
-      <th>コメントされた数</th>
       <th></th>
-      <th colspan="6"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -19,8 +17,6 @@
         <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
         <td><%= user.name%>さん</td>
         <td><%= user.meccas.count %>件</td>
-        <td>@件</td>
-        <td>@件</td>
         <td><%= link_to "詳細", user, class: "user_#{user.id}" %></td>
       </tr>
     <% end %>

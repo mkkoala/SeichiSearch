@@ -1,1 +1,19 @@
-映画タグ編集
+<h2>映画タグ編集</h2>
+
+<%= form_for(@movie_tag) do |f| %>
+
+	<%= f.attachment_field :movie_image %>
+
+	<h4>タイトル</h4>
+	<%= f.text_field :title %>
+
+	<h4>内容</h4>
+	<%= f.text_area :body, :size=>"60x10" %>
+
+	<br>
+	<br>
+
+	<p>※画像や文章を他者から引用した場合は引用元の情報を記載してください</p>
+	<%= f.submit '変更内容を保存する' %>
+
+<% end %>

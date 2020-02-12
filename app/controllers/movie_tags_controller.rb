@@ -3,8 +3,14 @@ class MovieTagsController < ApplicationController
 	def create
 		@movie_tag = MovieTag.new(movie_tag_params)
 		@movie_tag.user_id = current_user.id
-		@movie_tag.save
-		redirect_to movie_tags_path
+		if @movie_tag.save
+			redirect_to movie_tags_path
+		else
+			@movie_tags = MovieTag.page(params[:page]).reverse_order
+			render 'index'
+			@movie_tag = MovieTag.new
+			@user = @movie_tag.user
+		end
 	end
 
 	def index

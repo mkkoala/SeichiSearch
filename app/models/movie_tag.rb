@@ -6,4 +6,8 @@ class MovieTag < ApplicationRecord
 	has_many :meccas, through: :meccas_movie_tags #MovieTag:MeccasMovieTag => 1:多
 
 	attachment :movie_image
+
+	validates :title, presence: true
+	validates :movie_image_id, presence: true
+	validates :body, presence: true
 end

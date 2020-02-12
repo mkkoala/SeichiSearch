@@ -1,16 +1,8 @@
 <h2>映画タグ登録</h2>
-<!-- <%# if @movie_tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%#= @movie_tag.errors.count %> errors prohibited this obj from being saved:</h2>
-      <ul>
-      <%# @movie_tag.errors.full_messages.each do |message| %>
-        <li><%#= message %></li>
-      <%# end %>
-      </ul>
-    </div>
-<%# end %> -->
 
 <%= form_for(@movie_tag) do |f| %>
+
+  <%= render 'layouts/error_messages', model: f.object %>
 
 	<%= f.attachment_field :movie_image %>
 
@@ -18,7 +10,7 @@
 	<%= f.text_field :title %>
 
 	<h4>内容</h4>
-	<%= f.text_area :body %>
+	<%= f.text_area :body, :size=>"60x10" %>
 
 	<br>
 	<br>

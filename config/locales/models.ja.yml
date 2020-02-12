@@ -7,3 +7,14 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      mecca:
+        name: 場所名
+        body: 説明
+        movie_tag_ids: 映画タグ
+        mecca_image_id: イメージ画像
+        post_code: 郵便番号
+        address: 住所
+      movie_tag:
+        title: タイトル
+        movie_image_id: イメージ画像
+        body: 説明

@@ -12,4 +12,11 @@ class Mecca < ApplicationRecord
 	has_many :movie_tags, through: :meccas_movie_tags #Mecca:MeccasMovieTag => 1:多
 
 	attachment :mecca_image
+
+	validates :name, presence: true
+	validates :body, presence: true
+	validates :mecca_image_id, presence: true
+	validates :address, presence: true
+	validates :post_code, presence: true, format: {with: /\A\d{7}\z/}
+	validates :movie_tag_ids, presence: true
 end

@@ -16,16 +16,36 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+@font-face {
+  font-family: 'Uzurafont';
+  src: font-url('uzura.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 header{
 	color:white;
+	font-family: 'Uzurafont';
 	.navbar-left{
 		span{
-			font-size:20px;
+			font-size:30px;
 			padding-top:10px;
 		}
 	}
 }
 
 .body{
+	font-family: 'Uzurafont';
 	margin-top:51px;
+}
+
+.nav li a{
+	font-family: 'Uzurafont';
+	font-size:15px;
+
+}
+
+footer{
+	font-family: 'Uzurafont';
+	font-size:15px;
 }

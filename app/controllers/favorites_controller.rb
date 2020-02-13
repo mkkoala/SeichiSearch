@@ -1,4 +1,7 @@
 class FavoritesController < ApplicationController
+
+    before_action :authenticate_user!
+
 	def create
         mecca = Mecca.find(params[:mecca_id])
         favorite = current_user.favorites.new(mecca_id: mecca.id)

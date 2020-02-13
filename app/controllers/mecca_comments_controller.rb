@@ -1,4 +1,7 @@
 class MeccaCommentsController < ApplicationController
+
+	before_action :authenticate_user!
+
 	def create
 	    mecca = Mecca.find(params[:mecca_id])
 	    comment = current_user.mecca_comments.new(mecca_comment_params)

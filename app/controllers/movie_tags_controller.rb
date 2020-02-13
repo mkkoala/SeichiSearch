@@ -1,5 +1,7 @@
 class MovieTagsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def create
 		@movie_tag = MovieTag.new(movie_tag_params)
 		@movie_tag.user_id = current_user.id

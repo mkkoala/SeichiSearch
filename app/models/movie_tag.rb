@@ -8,6 +8,6 @@ class MovieTag < ApplicationRecord
 	attachment :movie_image
 
 	validates :title, presence: true
-	validates :movie_image_id, presence: true
+	validates :movie_image, presence: true
 	validates :body, presence: true
 end

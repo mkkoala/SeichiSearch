@@ -9,10 +9,13 @@
 		<%= link_to edit_user_path(@user), class: "col-xs-12 btn btn-default edit_user_#{@user.id}" do %>
 			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>　編集する
 		<% end %>
-
+		<div style="margin-bottom: 100px;"></div>
 		<%= link_to edit_user_registration_path, class: "col-xs-12 btn btn-default" do %>
 			<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>　パスワードを変更する
+			　　<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>　退会
 		<% end %>
+	<% else %>
+		<h3>投稿聖地数：<%= @user.meccas.count %>件</h3>
 	<% end %>
 </div>
 <div class="col-xs-6">
@@ -29,7 +32,6 @@
 	</table>
 </div>
 
-
 	<!-- 会員投稿聖地一覧 -->
 	<div class="col-xs-4">
 		<h3>投稿聖地</h3>
@@ -45,7 +47,7 @@
 					<% @meccas.each do |mecca| %>
 					<tr>
 						<td><%= mecca.name %></td>
-						<td><%= link_to "詳細", mecca_path(mecca.id) %></td>
+						<td><%= link_to "詳細", mecca_path(mecca.id), class: "btn-sm btn-warning" %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -68,7 +70,7 @@
 					<% @movie_tags.each do |movie_tag| %>
 					<tr>
 						<td><%= movie_tag.title %></td>
-						<td><%= link_to "詳細", movie_tag, class: "movie_tag_#{movie_tag.id}" %></td>
+						<td><%= link_to "詳細", movie_tag, class: "btn-sm btn-warning movie_tag_#{movie_tag.id}" %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -91,7 +93,7 @@
 					<% @favorites.each do |favorite| %>
 					<tr>
 						<td><%= favorite.mecca.name %></td>
-						<td><%= link_to "詳細", mecca_path(favorite.mecca.id) %></td>
+						<td><%= link_to "詳細", mecca_path(favorite.mecca.id), class: "btn-sm btn-warning" %></td>
 					</tr>
 					<% end %>
 				</tbody>

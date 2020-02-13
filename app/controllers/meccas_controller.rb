@@ -1,5 +1,7 @@
 class MeccasController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def new
 		@mecca = Mecca.new
 		@mecca.meccas_movie_tags.build
@@ -17,13 +19,12 @@ class MeccasController < ApplicationController
 
 	def index
 		@meccas = Mecca.page(params[:page]).reverse_order
-		@meccas_movie_tags = MeccasMovieTag.all
+		@movie_tags = MovieTag.all
 		if params[:movie_tag_id] # urlにmeccas_movie_tag_id(params)がある場合
 		  @movie_tag = MovieTag.find(params[:movie_tag_id])
 		  # meccas_movie_tagのデータベースのテーブルから一致するidを取得
 	      # meccas_movie_tag_idと紐づく投稿を取得
 	      @meccas = Mecca.joins(:meccas_movie_tags).where("meccas_movie_tags.movie_tag_id=?",params[:movie_tag_id]).order(created_at: :asc).page(params[:page]).reverse_order
-	      p @meccas
 	    else # urlにmeccas_movie_tag_id(params)がない場合
 	      # 投稿すべてを取得
 	      @meccas = Mecca.order(created_at: :asc).page(params[:page]).reverse_order

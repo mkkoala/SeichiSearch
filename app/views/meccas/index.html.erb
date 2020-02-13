@@ -1,6 +1,6 @@
 <h2>聖地一覧</h2>
 
-	<%= link_to "新規投稿画面へ",new_mecca_path %>
+	<%= link_to "新規投稿画面へ",new_mecca_path, class: "btn-lg btn-primary" %>
 
 <div class="row">
 
@@ -8,8 +8,8 @@
 		<!-- ここからジャンル検索リンク一覧部分 -->
 	<div class="col-md-2">
 		<h3>映画タグ検索</h3>
-		<% @meccas_movie_tags.each do |meccas_movie_tags| %>
-			<%= link_to meccas_movie_tags.movie_tag.title ,meccas_movie_tags_path(meccas_movie_tags.movie_tag_id) %><br>
+		<% @movie_tags.each do |movie_tag| %>
+			<%= link_to movie_tag.title ,meccas_movie_tags_path(movie_tag.id) %><br>
 		<% end %>
 	</div>
 	<!-- ここまでジャンル検索リンク一覧部分 -->
@@ -44,7 +44,9 @@
 
 		    <% mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
 		    	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
-					<p class="label label-default"><%= meccas_movie_tags.movie_tag.title %></p>
+					<p class="label label-default">
+						<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　<%= meccas_movie_tags.movie_tag.title %>
+					</p>
 				<% end %>
 			<% end %>
 

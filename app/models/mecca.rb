@@ -15,8 +15,6 @@ class Mecca < ApplicationRecord
 
 	validates :name, presence: true
 	validates :body, presence: true
-	validates :mecca_image, presence: true
 	validates :address, presence: true
 	validates :post_code, presence: true, format: {with: /\A\d{7}\z/}
-	validates :movie_tag_ids, presence: true
 end

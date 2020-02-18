@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	    if @user.update(user_params)
 	      redirect_to user_path(@user.id)
-	    else
+	    else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
 	      render 'edit'
 	    end
 	end

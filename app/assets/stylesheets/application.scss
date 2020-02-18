@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require_tree ../../../app/assets/stylesheets/.
  *= require_self
  */
  @import "bootstrap-sprockets";
@@ -23,8 +24,14 @@
   font-style: normal;
 }
 
+#slido_container{
+    height: 500px;
+}
+
 header{
-	color:white;
+	background: image-url('gradation.png');
+	background-size: cover;
+	color:#000066;
 	font-family: 'Uzurafont';
 	.navbar-left{
 		span{
@@ -34,15 +41,40 @@ header{
 	}
 }
 
-.body{
-	font-family: 'Uzurafont';
-	margin-top:51px;
-}
-
 .nav li a{
+	color:#000066;
 	font-family: 'Uzurafont';
 	font-size:15px;
+}
 
+.body{
+	font-family: 'Uzurafont';
+	margin: 51px 0 100px 0;
+}
+
+h2{
+	margin: 40px 0;
+}
+
+#map{
+	margin: 30px 0;
+}
+
+.label{
+	margin-right: 5px;
+}
+
+.btn-warning{
+	margin-right: 10px;
+}
+
+#submit_button{
+	margin: 10px 0;
+	padding: 15px 40px;
+	border-radius: 5px;
+	background-color: #000;
+	color: #fff;
+	border-style: none;
 }
 
 footer{

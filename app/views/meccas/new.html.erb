@@ -1,4 +1,4 @@
-<h2>新規登録</h2>
+<h2>新規投稿</h2>
 
 <%= form_for(@mecca) do |f| %>
 
@@ -16,15 +16,16 @@
 	<%= f.collection_check_boxes :movie_tag_ids, MovieTag.all, :id, :title %>
 
 	<h4>郵便番号</h4>
-	<%= f.text_field :post_code, :size=>"15" %>
+	<%= f.text_field :post_code, :size=>"15", :placeholder=>"例:1234567", :onkeyup=>"AjaxZip3.zip2addr(this,'','addr11','addr11');", :name=>"zip11" %>
 
 	<h4>住所</h4>
-	<%= f.text_field :address, :size=>"60" %>
+	<%= f.text_field :address, :size=>"60", :placeholder=>"例:東京都港区六本木6丁目11−1", :name=>"addr11", :required=>"true" %>
+	<%= f.hidden_field :address %>
 
 	<br>
 	<br>
 
 	<p>※画像や文章を他者から引用した場合は引用元の情報を記載してください</p>
-	<%= f.submit '新規登録' %>
+	<%= f.submit '新規投稿', :id => "submit_button" %>
 
 <% end %>

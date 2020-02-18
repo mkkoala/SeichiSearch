@@ -1,11 +1,11 @@
 <h2>聖地一覧</h2>
 
-	<%= link_to "新規投稿画面へ",new_mecca_path, class: "btn-lg btn-primary" %>
+	<%= link_to "新規投稿画面へ",new_mecca_path, class: "btn-lg btn-primary pull-right" %>
 
 <div class="row">
 
 
-		<!-- ここからジャンル検索リンク一覧部分 -->
+	<!-- ここからジャンル検索リンク一覧部分 -->
 	<div class="col-md-2">
 		<h3>映画タグ検索</h3>
 		<% @movie_tags.each do |movie_tag| %>
@@ -17,7 +17,6 @@
 
 
 	<div class="col-md-10">
-
 		<div class="row">
 
 		<p style="padding-left: 20px;">

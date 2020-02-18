@@ -7,7 +7,7 @@ class MovieTagsController < ApplicationController
 		@movie_tag.user_id = current_user.id
 		if @movie_tag.save
 			redirect_to movie_tags_path
-		else
+		else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
 			@movie_tags = MovieTag.page(params[:page]).reverse_order
 			render 'index'
 			@movie_tag = MovieTag.new

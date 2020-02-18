@@ -2,17 +2,29 @@
 
 <%= link_to user_path(@movie_tag.user), class: "pull-right" do %>
 	<nobr>(<%= @movie_tag.user.name %>　さんの投稿)</nobr>
-	<%= attachment_image_tag(@movie_tag.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %><br>
+	<%= attachment_image_tag(@movie_tag.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", :class => "img-rounded") %><br>
 <% end %>
 
-<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, :class => "img-rounded" %>
-<h4><%= @movie_tag.title %></h4>
-<p><%= @movie_tag.body %></p>
+<div class="row">
+	<div class="col-sm-4">
 
-<% if user_signed_in? && @user.id == current_user.id %>
-	<%= link_to "編集する", edit_movie_tag_path(@movie_tag.id), class: "btn-sm btn-success" %>
-	<%= link_to "削除する", movie_tag_path(@movie_tag.id), class: "btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
+		<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, :class => "img-rounded" %>
+
+	</div>
 
 
-<%= link_to "この映画の聖地一覧へ" ,meccas_movie_tags_path(@movie_tag.id), class: "btn-sm btn-primary" %>
+	<div class="col-sm-8">
+
+		<h4><%= @movie_tag.title %></h4>
+		<p><%= simple_format(@movie_tag.body) %></p>
+
+		<% if user_signed_in? && @user.id == current_user.id %>
+			<%= link_to "編集する", edit_movie_tag_path(@movie_tag.id), class: "btn-sm btn-success" %>
+			<%= link_to "削除する", movie_tag_path(@movie_tag.id), class: "btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+		<% end %>
+
+
+		<%= link_to "この映画の聖地一覧へ" ,meccas_movie_tags_path(@movie_tag.id), class: "btn-sm btn-primary" %>
+
+	</div>
+</div>

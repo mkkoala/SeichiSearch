@@ -32,7 +32,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "変更内容を保存する" %>
+    <%= f.submit "変更内容を保存する", :id => "submit_button" %>
   </div>
 <% end %>
 
@@ -41,7 +41,7 @@
 <p>アカウントを削除すると、会員登録情報や
   <br>これまでの投稿が閲覧できなくなります。
   <br>アカウントを削除する場合は、「退会する」をクリックしてください。
-  <%= button_to "退会する", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %>
+  <%= button_to "退会する", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete, :id => "submit_button" %>
 </p>
 
 <%= link_to "戻る", :back %>

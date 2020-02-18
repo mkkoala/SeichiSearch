@@ -1,10 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 # ツール・ライブラリの名前
 
 アプリ名:映画聖地紹介サイト「SeichiSearch」
@@ -16,12 +11,6 @@ Things you may want to cover:
 でも、いざ行ってみようとなった時に、一々色んなブログを開いて調べるのは面倒です。
 アニメについては聖地巡礼スポットの紹介サイトが見つかりましたが、映画については見つかりませんでした。
 自分と同じように、映画の聖地巡礼をしてみたいなと思っている人が、情報を共有できるようなSNSサイトを作りました。
-ターゲットユーザは
-- 映画の聖地を紹介したい一般ユーザ
-- 映画の聖地巡礼をしたい一般ユーザ　　など
-主な利用シーンは
-- 紹介したい映画の撮影地、ロケ地、聖地の情報を投稿できる
-- 映画の撮影地、ロケ地、聖地の位置情報を見て、聖地巡礼に利用できる　　など
 
 ***デモ***
 
@@ -37,13 +26,26 @@ Things you may want to cover:
 他の機能はこちらを参照して下さい。`awesome-tool --help`.
 
 ## 必要要件
+- MacOS Catalina '10.15.1'
+- Ruby '2.5.7'
+- Rails '5.2.4.1'
+- Kaminari '1.1.1'
+- Bootstrap '3.3.6'
+- Windowsでの動作は確認していません
 
-- 要件
-- 要件
-- 要件
+## ターゲットユーザ
+
+- 映画の聖地を紹介したい一般ユーザ
+- 映画の聖地巡礼をしたい一般ユーザ
 - ...
 
-## 使い方
+## 主な利用シーン
+
+- 紹介したい映画の撮影地、ロケ地、聖地の情報を投稿できる
+- 映画の撮影地、ロケ地、聖地の位置情報を見て、聖地巡礼に利用できる
+- ...
+
+## 使い方(幾つか簡単かつよく使う・代表的な機能の説明を記述)
 
 1. 使い方
 2. 使い方
@@ -52,9 +54,10 @@ Things you may want to cover:
 ## インストール
 
 ```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
-$ cd awesome-tool
-$ sh setup.sh
+$ git clone https://github.com/mkkoala/SeichiSearch.git
+$ cd SeichiSearch
+$ bundle install
+$ rails db:migrate
 $ ~do anything~
 ```
 
@@ -79,9 +82,6 @@ $ ~do anything~
 
 ## 作者
 
-[@TanakanoAnchan](https://twitter.com/TanakanoAnchan)
+[@mkkoala](https://github.com/mkkoala)
 mail to: xxxx@mail.com
 
-## ライセンス
-
-[MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>

@@ -1,16 +1,26 @@
+<h2>聖地詳細</h2>
+
 <%= link_to user_path(@mecca.user), class: "pull-right" do %>
 	<nobr>(<%= @mecca.user.name %>　さんの投稿)</nobr>
-	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %><br>
+	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", :class => "img-rounded") %><br>
 <% end %>
 
-<!-- イメージ画像 -->
-<%= attachment_image_tag(@mecca, :mecca_image, :fill, 300, 300, fallback: "no_image_2.jpg") %>
+<div class="row">
+  <div class="col-sm-6">
+    <!-- イメージ画像 -->
+    <%= attachment_image_tag(@mecca, :mecca_image, :fill, 520, 400, fallback: "no_image_2.jpg", :class => "img-rounded") %>
 
+    <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
+      <div id="map" style="width:520px; height:300px"></div>
+    <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
+  </div>
+
+  <div class="col-sm-6">
 <!-- 場所名 -->
 <h3><%= @mecca.name %></h3>
 
 <!-- 説明 -->
-<p><%= @mecca.body %></p>
+<p><%= simple_format(@mecca.body) %></p>
 
 
 <% @mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
@@ -51,73 +61,33 @@
 <!-- 住所 -->
 <h4><%= @mecca.address %></h4>
 
-
-
-<!-- マップ表示部分 -->
-	<div id="map" style="width:620px; height:400px"></div>
-
-    <script>
-	function initMap() {
-
-	  var target = document.getElementById('map'); //マップを表示する要素を指定
-	  var address = '岐阜県高山市城山156'; //住所を指定
-	  var geocoder = new google.maps.Geocoder();
-
-	  geocoder.geocode({ address: address }, function(results, status){
-	    if (status === 'OK' && results[0]){
-
-	      console.log(results[0].geometry.location);
-
-	       var map = new google.maps.Map(target, {
-	         center: results[0].geometry.location,
-	         zoom: 15
-	       });
-
-	       var marker = new google.maps.Marker({
-	         position: results[0].geometry.location,
-	         map: map,
-	         animation: google.maps.Animation.DROP
-	       });
-
-	    }else{
-	      //住所が存在しない場合の処理
-	      alert('住所が正しくないか存在しません。');
-	      target.style.display='none';
-	    }
-	  });
-	}
-	</script>
-	<script src="//maps.google.com/maps/api/js?key=AIzaSyA3uyk_GS67ltFpMTIxNzst0BBi3NTaQ4E&callback=initMap"></script>
-<!-- マップ表示部分 -->
+  </div>
+</div>
 
 
 
-<!-- コメント入力フォーム -->
-<%= form_for @mecca_comment, url: mecca_mecca_comments_path(@mecca.id), method: :post do |f| %>
-    <div class="row">
-        <div class="col-sm-12">
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-        </div>
-    </div>
-    <%= f.submit "送信する", class: "pull-right" %>
-<% end %>
-<!-- コメント入力フォーム -->
+<div class="row">
+  <div class="col-sm-12">
+    <!-- コメント入力フォーム -->
+    <%= form_for @mecca_comment, url: mecca_mecca_comments_path(@mecca.id), method: :post do |f| %>
+      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+      <%= f.submit "送信する", class: "pull-right", :id => "submit_button" %>
+    <% end %>
+    <!-- コメント入力フォーム -->
 
-
-
-<!-- コメント一覧 -->
-<table class="table">
-	<% @mecca.mecca_comments.each do |mecca_comment| %>
+    <!-- コメント一覧 -->
+    <table class="table">
+    	<% @mecca.mecca_comments.each do |mecca_comment| %>
         <tr class="comment">
-            <div class="comment-body bb">
+          <div class="comment-body bb">
             <td>
 	            <div class="comment-avatar">
 	              <div class="avatar">
-	                <%= attachment_image_tag mecca_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+	                <%= attachment_image_tag mecca_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", :class => "img-rounded" %>
 	              </div>
 	            </div>
-	        </td>
-	        <td>
+  	        </td>
+  	        <td>
 	            <div class="comment-text">
 		            <div class="comment-author clearfix">
 		                <%= link_to mecca_comment.user.name,user_path(mecca_comment.user) %></a>
@@ -125,21 +95,76 @@
 		                  <span class="comment-date"><%= mecca_comment.created_at.strftime('%Y/%m/%d') %></span>
 		                </span>
 		            </div>
-		            <div class="comment-entry"><%= mecca_comment.comment %></div>
+		            <div class="comment-entry"><%= simple_format(mecca_comment.comment) %></div>
 	            </div>
-	        </td>
-	        <td>
+  	        </td>
+  	        <td>
 	            <% if user_signed_in? && mecca_comment.user.id == current_user.id %>
-	            <div class="comment-destroy">
-	            	<%= link_to "削除する",mecca_mecca_comments_path(@mecca.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
-	            </div>
+  	            <div class="comment-destroy">
+  	            	<%= link_to "削除する",mecca_mecca_comments_path(@mecca.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+  	            </div>
 	            <% end %>
-
-            </div>
-        	</td>
+            </td>
+        	</div>
         </tr>
-    <% end %>
-</table>
-<!-- コメント一覧 -->
+      <% end %>
+    </table>
+    <!-- コメント一覧 -->
+  </div>
+</div>
+
+
+
+
+
+<!-- JavaScript -->
+
+<script>
+function initMap() {
+
+  var target = document.getElementById('map'); //マップを表示する要素を指定
+  var place = '<%= @mecca.address %>'; //''の中に埋め込みrubyを使用して住所を指定
+  var geocoder = new google.maps.Geocoder(); //geocodeリクエストを送信するGeocoderの作成(Google geocodingを利用し場所の緯度経度を取得する)
+
+  // geocodeリクエストを実行。
+  // 第１引数はaddressプロパティに検索したい住所を入れる。
+  // 第２引数はコールバック関数(終わったら実行したい処理)。
+
+  geocoder.geocode({  //Geocoderクラスのgeocode()メソッドで、Geocoderにリクエストを送信
+   address: place  //第１引数　addressプロパティに、検索する住所文字列(var placeの部分)を指定
+   },
+
+    function(results, status){  //第２引数　results=GeocoderResult,status=GeocoderStatus
+    if (status === 'OK' && results[0]){  //OK=status(GeocoderStatus)で有効なGeocoderResponseを保持した結果が返ってきた,result=地図の中心
+      //住所が存在する場合の処理
+      console.log(results[0].geometry.location);  //geometryプロパティのlocation(この結果の緯度/経度座標)に検索した場所の緯度／経度が返ってくる
+
+       //マップ範囲を表示する要素を指定
+       var map = new google.maps.Map(target, {
+         center: results[0].geometry.location,
+         zoom: 15 //マップの縮尺を指定
+       });
+
+       //マップのマーカーを表示する要素を指定
+       var marker = new google.maps.Marker({
+         position: results[0].geometry.location,
+         map: map,
+         animation: google.maps.Animation.DROP
+       });
+
+    }else{
+      //住所が存在しない場合の処理
+      alert('住所が正しくないか存在しません。'); //アラート呼び出し
+      target.style.display='none';; //target(=マップを表示する要素)を非表示にする
+    }
+  });
+}
+</script>
+<!-- 「key」パラメータに取得したAPIキーを記述し、「callback」パラメータにAPIの読み込みが終わった後で呼び出される関数を記述。
+	なお「async」属性が設定されているので非同期で読み込まれる。 -->
+<script async defer src="https://maps.google.com/maps/api/js?key=AIzaSyA3uyk_GS67ltFpMTIxNzst0BBi3NTaQ4E&callback=initMap"></script>
+
+<!-- JavaScript -->
+
 
 

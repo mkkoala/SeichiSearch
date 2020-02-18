@@ -12,7 +12,7 @@ class MeccasController < ApplicationController
 		@mecca.user_id = current_user.id
 		if @mecca.save
 			redirect_to meccas_path
-		else
+		else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
 			render 'new'
 		end
 	end
@@ -20,14 +20,13 @@ class MeccasController < ApplicationController
 	def index
 		@meccas = Mecca.page(params[:page]).reverse_order
 		@movie_tags = MovieTag.all
-		if params[:movie_tag_id] # urlにmeccas_movie_tag_id(params)がある場合
-		  @movie_tag = MovieTag.find(params[:movie_tag_id])
-		  # meccas_movie_tagのデータベースのテーブルから一致するidを取得
-	      # meccas_movie_tag_idと紐づく投稿を取得
-	      @meccas = Mecca.joins(:meccas_movie_tags).where("meccas_movie_tags.movie_tag_id=?",params[:movie_tag_id]).order(created_at: :asc).page(params[:page]).reverse_order
-	    else # urlにmeccas_movie_tag_id(params)がない場合
+		if params[:movie_tag_id] # urlにmovie_tag_id(params)がある場合
+		  @movie_tag = MovieTag.find(params[:movie_tag_id])# movie_tagのデータベースのテーブルから一致するidを取得
+		  # movie_tag_idと紐づく投稿を取得
+	      @meccas = Mecca.joins(:meccas_movie_tags).where("meccas_movie_tags.movie_tag_id=?",params[:movie_tag_id]).order(created_at: :asc).page(params[:page]).per(15).reverse_order
+	    else # urlにmovie_tag_id(params)がない場合
 	      # 投稿すべてを取得
-	      @meccas = Mecca.order(created_at: :asc).page(params[:page]).reverse_order
+	      @meccas = Mecca.order(created_at: :asc).page(params[:page]).per(15).reverse_order
 	    end
 	end
 

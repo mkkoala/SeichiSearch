@@ -2,16 +2,8 @@
 
 <%= form_for(@user) do |f| %>
 
-<!-- エラーメッセージ表示-->
-<% if @user.errors.any? %>
-	<h3><%= @user.errors.count %>error occurrence</h3>
-	<ul>
-		<% @user.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-		<% end %>
-	</ul>
-<% end %>
-<!-- エラーメッセージ表示-->
+<%= render 'layouts/error_messages', model: f.object %>
+
 <table class="table">
 	<tr>
 		<tr>プロフィール画像</tr>
@@ -27,7 +19,7 @@
 </table>
 
 <div class="actions">
-	<%= f.submit "編集内容を保存する" %>
+	<%= f.submit "編集内容を保存する", :id => "submit_button" %>
 </div>
 
 <% end %>

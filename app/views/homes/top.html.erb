@@ -1,27 +1,58 @@
-<div class="row">
-	<div class="main col-md-offset-3 col-md-6">
-		<h2>ようこそ<span class="glyphicon glyphicon-book"></span><strong>SeichiSearch</strong>へ！</h2>
-			<p></p>
-			<p>you can share and exchange your opinions , inpressions , and emotions</p>
-			<p>about varioius books!</p>
+<div class="top-content">
+	<h1 class="title">SeichiSearch</h1>
 
-			<div class="btn-wrapper">
-				<% if user_signed_in? %>
-					<div class="row main-btn">
-						<p><%=link_to "ログインはこちら", user_path(current_user), class: "btn btn-info col-xs-10 col-offset-1" %></p>
-					</div>
-					<div class="row main-btn">
-						<p><%=link_to "新規登録はこちら", user_path(current_user), class: "btn btn-success col-xs-10 col-xs-offset-1" %></p>
-					</div>
-				<% else %>
-					<div class="row main-btn">
-						<p><%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1" %></p>
-					</div>
-					<div class="row main-btn">
-						<p><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1" %></p>
-					</div>
-				<% end %>
+	<div class="btn-wrapper">
+		<% if user_signed_in? %>
+			<div class="row">
+				<p><%=link_to "ログインはこちら", user_path(current_user), class: "btn btn-info main-btn" %></p>
 			</div>
-
+			<div class="row">
+				<p><%=link_to "新規登録はこちら", user_path(current_user), class: "btn btn-success main-btn" %></p>
+			</div>
+		<% else %>
+			<div class="row">
+				<p><%=link_to "ログインはこちら", new_user_session_path, class: "btn btn-info main-btn" %></p>
+			</div>
+			<div class="row">
+				<p><%=link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-success main-btn" %></p>
+			</div>
+		<% end %>
 	</div>
+
+
+	<div style="float: left; border-radius: 50%; height: 450px; width: 450px; background-image: url(/assets/p820.jpg); background-position: bottom; background-size: cover;">
+	<div style="float: left; border-radius: 50%; height: 450px; width: 450px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
+
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-image: url(/assets/p3392.jpg); background-position: bottom; background-size: cover;">
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
+
+	<div style="float: left; border-radius: 50%; height: 200px; width: 200px; background-image: url(/assets/IMG_8058.JPG); background-position: bottom; background-size: cover;">
+	<div style="float: left; border-radius: 50%; height: 200px; width: 200px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
+
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-image: url(/assets/p1112.jpg); background-position: bottom; background-size: cover;">
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
+
+	<div style="float: left; border-radius: 50%; height: 600px; width: 600px; background-image: url(/assets/p9008.jpg); background-position: bottom; background-size: cover; margin-top: 20px;">
+	<div style="float: left; border-radius: 50%; height: 600px; width: 600px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
+
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-image: url(/assets/7650973264_IMG_3360.JPG); background-position: bottom; background-size: cover; margin-top: 20px;">
+	<div style="float: right; border-radius: 50%; height: 300px; width: 300px; background-color: rgba(255, 255, 255, 0.2);">
+	</div>
+	</div>
+
 </div>

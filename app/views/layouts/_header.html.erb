@@ -1,60 +1,60 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
-      <span>SeichiSearch</span>
+      <%= image_tag 'seichisearch_logo.png', size: '140x70' %>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user) do %>
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>　マイページ
+              <span class="glyphicon glyphicon-home" aria-hidden="true" style="margin: 0 30px;"></span><br>マイページ
             <% end %>
           </li>
           <li>
             <%= link_to homes_about_path do %>
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>　アバウト
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="margin: 0 20px;"></span><br>アバウト
             <% end %>
           </li>
           <li>
             <%= link_to users_path do %>
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>　会員一覧
+              <span class="glyphicon glyphicon-user" aria-hidden="true" style="margin: 0 20px;"></span><br>会員一覧
             <% end %>
           </li>
           <li>
             <%= link_to meccas_path do %>
-              <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>　聖地一覧
+              <span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="margin: 0 20px;"></span><br>聖地一覧
             <% end %>
           </li>
           <li>
             <%= link_to movie_tags_path do %>
-              <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>　映画タグ一覧
+              <span class="glyphicon glyphicon-tags" aria-hidden="true" style="margin: 0 35px;"></span><br>映画タグ一覧
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>　ログアウト
+              <span class="glyphicon glyphicon-log-out" aria-hidden="true" style="margin: 0 30px;"></span><br>ログアウト
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to root_path do %>
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>　トップ
+              <span class="glyphicon glyphicon-home" aria-hidden="true" style="margin: 0 15px;"></span><br>トップ
             <% end %>
           </li>
           <li>
             <%= link_to homes_about_path do %>
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>　アバウト
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="margin: 0 20px;"></span><br>アバウト
             <% end %>
           </li>
           <li>
             <%= link_to new_user_registration_path do %>
-              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>　新規登録
+              <span class="glyphicon glyphicon-edit" aria-hidden="true" style="margin: 0 20px;"></span><br>新規登録
             <% end %>
           </li>
           <li>
             <%= link_to new_user_session_path do %>
-              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>　ログイン
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true" style="margin: 0 20px;"></span><br>ログイン
             <% end %>
           </li>
         <% end %>

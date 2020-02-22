@@ -101,7 +101,7 @@
   	        <td>
 	            <% if user_signed_in? && mecca_comment.user.id == current_user.id %>
   	            <div class="comment-destroy">
-  	            	<%= link_to "削除する",mecca_mecca_comments_path(@mecca.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+  	            	<%= link_to "削除する",mecca_mecca_comments_path(@mecca.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-sm btn-danger" %>
   	            </div>
 	            <% end %>
             </td>

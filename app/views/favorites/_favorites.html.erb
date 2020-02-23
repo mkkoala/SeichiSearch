@@ -1,0 +1,9 @@
+<% if Favorite.find_by(user_id: current_user.id, mecca_id: mecca.id) %>
+	 <%= link_to "/meccas/#{mecca.id}/favorites", method: :delete, class: "btn btn-sm",style: "background-color: pink; color: red; font-size:15px;", remote: true do %>
+		<i class="fa fa-heart" aria-hidden="true"></i>　<%= @mecca.favorites.count %>　いいねを解除する
+	<% end %>
+<% else %>
+	<%= link_to "/meccas/#{mecca.id}/favorites", method: :post, class: "btn btn-sm",style: "background-color: pink; color: red; font-size:15px;", remote: true do %>
+		<i class="fa fa-heart-o" aria-hidden="true"></i>　<%= @mecca.favorites.count %>　いいねに追加する
+	<% end %>
+<% end %>

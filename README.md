@@ -23,8 +23,6 @@
 - 位置情報機能(Google map API)
 - ...
 
-他の機能はこちらを参照して下さい。`awesome-tool --help`.
-
 ## 必要要件
 - MacOS Catalina '10.15.1'
 - Ruby '2.5.7'
@@ -101,5 +99,4 @@ $ ~do anything~
 ## 作者
 
 [@mkkoala](https://github.com/mkkoala)
-mail to: xxxx@mail.com
 

@@ -15,7 +15,8 @@ class MeccaCommentsController < ApplicationController
 
 	def destroy
 	  	mecca = Mecca.find(params[:mecca_id])
-        comment = current_user.mecca_comments.find_by(mecca_id: mecca.id)
+        # comment = current_user.mecca_comments.find_by(id: params[:comment_id], mecca_id: mecca.id)
+        comment = mecca.mecca_comments.find(params[:id])
         comment.destroy
         redirect_back(fallback_location: root_path)
   	end

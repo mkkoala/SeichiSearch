@@ -14,7 +14,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", :class => "img-rounded") %></td>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', :class => "img-rounded") %></td>
         <td><%= user.name%>さん</td>
         <td><%= user.meccas.count %>件</td>
         <td><%= link_to "詳細", user, class: "btn-sm btn-warning user_#{user.id}" %></td>

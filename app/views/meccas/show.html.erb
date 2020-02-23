@@ -2,13 +2,13 @@
 
 <%= link_to user_path(@mecca.user), class: "pull-right" do %>
 	<nobr>(<%= @mecca.user.name %>　さんの投稿)</nobr>
-	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", :class => "img-rounded") %><br>
+	<%= attachment_image_tag(@mecca.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', :class => "img-rounded") %><br>
 <% end %>
 
 <div class="row">
   <div class="col-sm-6">
     <!-- イメージ画像 -->
-    <%= attachment_image_tag(@mecca, :mecca_image, :fill, 520, 400, fallback: "no_image_2.jpg", :class => "img-rounded") %>
+    <%= attachment_image_tag(@mecca, :mecca_image, :fill, 520, 400, fallback: "no_image_2.jpg", size:'520x400', :class => "img-rounded") %>
 
     <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
       <div id="map" style="width:520px; height:300px"></div>
@@ -69,7 +69,7 @@
             <td>
 	            <div class="comment-avatar">
 	              <div class="avatar">
-	                <%= attachment_image_tag mecca_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", :class => "img-rounded" %>
+	                <%= attachment_image_tag mecca_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'60x60', :class => "img-rounded" %>
 	              </div>
 	            </div>
   	        </td>

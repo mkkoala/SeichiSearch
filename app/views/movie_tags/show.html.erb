@@ -2,13 +2,13 @@
 
 <%= link_to user_path(@movie_tag.user), class: "pull-right" do %>
 	<nobr>(<%= @movie_tag.user.name %>　さんの投稿)</nobr>
-	<%= attachment_image_tag(@movie_tag.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", :class => "img-rounded") %><br>
+	<%= attachment_image_tag(@movie_tag.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', :class => "img-rounded") %><br>
 <% end %>
 
 <div class="row">
 	<div class="col-sm-4">
 
-		<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, :class => "img-rounded" %>
+		<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, fallback: "no_image_2.jpg", size:'300x500', :class => "img-rounded" %>
 
 	</div>
 

@@ -32,7 +32,7 @@
 			<div class="col-sm-4" style="padding-bottom: 50px;">
 
 			<%= link_to mecca_path(mecca.id) do %>
-				<%= attachment_image_tag mecca, :mecca_image, :fill, 200, 180, :class => "img-rounded" %>
+				<%= attachment_image_tag mecca, :mecca_image, :fill, 200, 180, :class => "img-rounded", fallback: "no_image_2.jpg", size:'200x180' %>
 			<% end %>
 
 		    </p>

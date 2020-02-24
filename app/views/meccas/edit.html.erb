@@ -12,7 +12,10 @@
 
 	<p>映画タグ<%= f.collection_check_boxes :movie_tag_ids, MovieTag.all, :id, :title %></p>
 
-	<p>郵便番号<%= f.text_field :post_code, :size=>"15", :placeholder=>"例:1234567", :onkeyup=>"AjaxZip3.zip2addr(this,'','mecca[address]','mecca[address]');", id: "post_code" %>
+	<p>郵便番号
+		<p>※分からない、不明などの場合は「0000000」で登録してください</p>
+		<%= f.text_field :post_code, :size=>"15", :placeholder=>"例:1234567", :onkeyup=>"AjaxZip3.zip2addr(this,'','mecca[address]','mecca[address]');", id: "post_code" %>
+	</p>
 
 	<p>住所<%= f.text_field :address, :size=>"60", :placeholder=>"例:東京都港区六本木6丁目11−1", :name=>"mecca[address]", :required=>"true" %></p>
 

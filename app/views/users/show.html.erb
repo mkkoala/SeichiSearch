@@ -26,7 +26,7 @@
 
 		<tr>
 			<th>名前</th>
-			<th><%= @user.name %></th>
+			<th class="user_index"><%= @user.name %></th>
 		</tr>
 
 	</table>
@@ -46,7 +46,7 @@
 				<tbody>
 					<% @meccas.each do |mecca| %>
 					<tr>
-						<td><%= mecca.name %></td>
+						<td class="mecca_index"><%= mecca.name %></td>
 						<td><%= link_to "詳細", mecca_path(mecca.id), class: "btn-sm btn-warning" %></td>
 					</tr>
 					<% end %>
@@ -69,7 +69,7 @@
 				<tbody>
 					<% @movie_tags.each do |movie_tag| %>
 					<tr>
-						<td><%= movie_tag.title %></td>
+						<td class="movie_tag_index"><%= movie_tag.title %></td>
 						<td><%= link_to "詳細", movie_tag, class: "btn-sm btn-warning movie_tag_#{movie_tag.id}" %></td>
 					</tr>
 					<% end %>
@@ -92,7 +92,7 @@
 				<tbody>
 					<% @favorites.each do |favorite| %>
 					<tr>
-						<td><%= favorite.mecca.name %></td>
+						<td class="mecca_index"><%= favorite.mecca.name %></td>
 						<td><%= link_to "詳細", mecca_path(favorite.mecca.id), class: "btn-sm btn-warning" %></td>
 					</tr>
 					<% end %>

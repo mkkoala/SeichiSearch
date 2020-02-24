@@ -38,7 +38,7 @@
       <tbody>
         <% @movie_tags.each do |movie_tag| %>
           <tr>
-            <td><%= movie_tag.title %></td>
+            <td class="movie_tag_index"><%= simple_format(movie_tag.title) %></td>
             <td><%= link_to "詳細", movie_tag_path(movie_tag.id), class: "btn-sm btn-warning" %></td>
           </tr>
         <% end %>

@@ -24,6 +24,10 @@
   font-style: normal;
 }
 
+*{
+	word-break: break-all;
+}
+
 
 
 //ヘッダー
@@ -183,6 +187,7 @@ section{
 
 
 
+
 //ヤード部分
 #map{
 	margin: 30px 0;
@@ -209,9 +214,24 @@ section{
 	border-style: none;
 }
 
-.comment-text{
-	word-break: break-all;
+.movie_tag_index{
+	width: 70%;
 }
+
+.user_index{
+	width: 50%;
+}
+
+.mecca_index{
+	width: 70%;
+}
+
+.mecca_index_col{
+	width: 100%;
+    height: 20px;
+    overflow: hidden;
+}
+
 
 
 

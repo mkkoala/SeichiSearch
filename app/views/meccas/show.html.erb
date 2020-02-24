@@ -16,36 +16,36 @@
   </div>
 
   <div class="col-sm-6">
-<!-- 場所名 -->
-<h3><%= @mecca.name %></h3>
+    <!-- 場所名 -->
+    <h3><%= @mecca.name %></h3>
 
-<!-- 説明 -->
-<p><%= simple_format(@mecca.body) %></p>
-
-
-<% @mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
-	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
-		<p class="label label-default">
-			<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　<%= meccas_movie_tags.movie_tag.title %>
-		</p>
-	<% end %>
-<% end %>
-
-<div id="favorite-<%= @mecca.id %>" style="margin: 20px 0;">
-  <%= render 'favorites/favorites', mecca: @mecca %>
-</div>
+    <!-- 説明 -->
+    <p><%= simple_format(@mecca.body) %></p>
 
 
-<% if user_signed_in? && @mecca.user.id == current_user.id %>
-	<%= link_to "編集する",edit_mecca_path(@mecca), class: "btn-sm btn-success edit_mecca_#{@mecca.id}" %>
-	<%= link_to "削除する",@mecca, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
-<% end %>
+    <% @mecca.meccas_movie_tags.each do |meccas_movie_tags| %>
+    	<%= link_to movie_tag_path(meccas_movie_tags.movie_tag.id) do %>
+    		<p class="label label-default">
+    			<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　<%= meccas_movie_tags.movie_tag.title %>
+    		</p>
+    	<% end %>
+    <% end %>
 
-<!-- 郵便番号 -->
-<h4>〒 <%= @mecca.post_code %></h4>
+    <div id="favorite-<%= @mecca.id %>" style="margin: 20px 0;">
+      <%= render 'favorites/favorites', mecca: @mecca %>
+    </div>
 
-<!-- 住所 -->
-<h4><%= @mecca.address %></h4>
+
+    <% if user_signed_in? && @mecca.user.id == current_user.id %>
+    	<%= link_to "編集する",edit_mecca_path(@mecca), class: "btn-sm btn-success edit_mecca_#{@mecca.id}" %>
+    	<%= link_to "削除する",@mecca, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+    <% end %>
+
+    <!-- 郵便番号 -->
+    <h4>〒 <%= @mecca.post_code %></h4>
+
+    <!-- 住所 -->
+    <h4><%= @mecca.address %></h4>
 
   </div>
 </div>

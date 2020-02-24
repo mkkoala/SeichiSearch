@@ -9,12 +9,12 @@ class Mecca < ApplicationRecord
 	has_many :mecca_comments, dependent: :destroy #Mecca:MeccaComment => 1:多
 
 	has_many :meccas_movie_tags, dependent: :destroy #Mecca:MeccasMovieTag => 1:多
-	has_many :movie_tags, through: :meccas_movie_tags #Mecca:MeccasMovieTag => 1:多
+	has_many :movie_tags, through: :meccas_movie_tags #Mecca:MovieTag => 1:多
 
 	attachment :mecca_image
 
 	validates :name, presence: true
 	validates :body, presence: true
 	validates :address, presence: true
-	validates :post_code, presence: true, format: {with: /\A\d{7}\z/}
+	validates :post_code, presence: true, format: {with: /\A\d{7}\z/} # 郵便番号（ハイフンなし7桁）
 end

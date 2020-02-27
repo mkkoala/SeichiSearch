@@ -24,10 +24,6 @@
   font-style: normal;
 }
 
-*{
-	word-break: break-all;
-}
-
 
 
 //ヘッダー
@@ -216,20 +212,24 @@ section{
 
 .movie_tag_index{
 	width: 70%;
+	word-break: break-all;
 }
 
 .user_index{
 	width: 50%;
+	word-break: break-all;
 }
 
 .mecca_index{
 	width: 70%;
+	word-break: break-all;
 }
 
 .mecca_index_col{
 	width: 100%;
     height: 20px;
     overflow: hidden;
+    word-break: break-all;
 }
 
 

@@ -10,6 +10,13 @@
     <!-- イメージ画像 -->
     <%= attachment_image_tag(@mecca, :mecca_image, :fill, 520, 400, fallback: "no_image_2.jpg", size:'520x400', :class => "img-rounded") %>
 
+
+    <!-- Google Vision APIの検出タグ -->
+    <% @mecca.tags.each do |tag| %>
+      <span class="label label-primary"><%= tag.name %></span>
+    <% end %>
+
+
     <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
       <div id="map" style="width:520px; height:300px"></div>
     <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
@@ -34,7 +41,6 @@
     <div id="favorite-<%= @mecca.id %>" style="margin: 20px 0;">
       <%= render 'favorites/favorites', mecca: @mecca %>
     </div>
-
 
     <% if user_signed_in? && @mecca.user.id == current_user.id %>
     	<%= link_to "編集する",edit_mecca_path(@mecca), class: "btn-sm btn-success edit_mecca_#{@mecca.id}" %>

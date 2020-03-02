@@ -74,17 +74,19 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 # 画像加工用（サイズ調整など）gem
 gem "refile-mini_magick"
-#ページング機能用gem
+# ページング機能用gem
 gem 'kaminari','~> 1.1.1'
-#レイアウト用gem
+# レイアウト用gem
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
-#deviseの日本語化
+# deviseの日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-#エラーメッセージの日本語化
+# エラーメッセージの日本語化
 gem 'rails-i18n'
-#MySQLを利用するために必要なgem
+# MySQLを利用するために必要なgem
+gem 'dotenv-rails'
+# .env という名前で環境変数を書き込んでおくと、自動的に ENV の中にその値を追加してくれる
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

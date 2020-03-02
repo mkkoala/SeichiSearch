@@ -11,6 +11,8 @@ class Mecca < ApplicationRecord
 	has_many :meccas_movie_tags, dependent: :destroy #Mecca:MeccasMovieTag => 1:多
 	has_many :movie_tags, through: :meccas_movie_tags #Mecca:MovieTag => 1:多
 
+	has_many :tags, dependent: :destroy #Mecca:Tag => 1:多
+
 	attachment :mecca_image
 
 	validates :name, presence: true

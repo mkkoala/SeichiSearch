@@ -11,7 +11,11 @@ class MeccasController < ApplicationController
 		@mecca = Mecca.new(mecca_params)
 		@mecca.user_id = current_user.id
 		if @mecca.save
-			redirect_to meccas_path
+			tags = Vision.get_image_data(@mecca.mecca_image)
+	    	tags.each do |tag|
+	        	@mecca.tags.create(name: tag)
+	    	end
+			redirect_to meccas_path(@mecca)
 		else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
 			render 'new'
 		end

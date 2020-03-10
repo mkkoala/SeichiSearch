@@ -1,8 +1,9 @@
 # README
 
-# ツール・ライブラリの名前
+# SeichiSearch
 
 アプリ名:映画聖地紹介サイト「SeichiSearch」
+聖地(Seichi)を検索(Search)する、で「SeichiSearch」です。
 
 ## 簡単な説明
 

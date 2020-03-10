@@ -9,4 +9,5 @@ class MovieTag < ApplicationRecord
 
 	validates :title, presence: true
 	validates :body, presence: true
+	validates :movie_image, presence: true
 end

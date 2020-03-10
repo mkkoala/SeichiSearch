@@ -16,6 +16,7 @@ class Mecca < ApplicationRecord
 	attachment :mecca_image
 
 	validates :name, presence: true
+	validates :mecca_image, presence: true
 	validates :body, presence: true
 	validates :address, presence: true
 	validates :post_code, presence: true, format: {with: /\A\d{7}\z/} # 郵便番号（ハイフンなし7桁）

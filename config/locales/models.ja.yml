@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         name: 名前
+        profile_image: イメージ画像
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード

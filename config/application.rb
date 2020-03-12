@@ -19,7 +19,6 @@ module SeichiSearch
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # rails g controller ~~~ などのコマンドでrspec用のテストファイルを作成するための追記。色々な記述があるので、一番下に追記する
 
     config.generators do |g|
       g.test_framework :rspec,

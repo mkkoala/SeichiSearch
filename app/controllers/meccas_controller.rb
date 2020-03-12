@@ -17,7 +17,7 @@ class MeccasController < ApplicationController
 	        	@mecca.tags.create(name: tag)
 	    	end
 			redirect_to meccas_path(@mecca)
-		else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
+		else #if文でエラー発生時と正常時のリンク先を分けている。
 			render 'new'
 		end
 	end
@@ -52,7 +52,7 @@ class MeccasController < ApplicationController
 	  	@mecca = Mecca.find(params[:id])
 	  	if @mecca.update(mecca_params)
 	  		redirect_to @mecca
-	  	else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
+	  	else #if文でエラー発生時と正常時のリンク先を分けている。
 	  		render "edit"
 	  	end
 	end

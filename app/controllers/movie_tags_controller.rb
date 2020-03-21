@@ -22,15 +22,25 @@ class MovieTagsController < ApplicationController
   	end
 
   	def show
+  		begin #例外処理設定
 	    @movie_tag = MovieTag.find(params[:id])
 	    @user = @movie_tag.user
+		rescue Exception => e #何かしらのエラーが発生したら
+			redirect_to root_path #トップページに戻す
+			puts "エラーが発生しました！"
+		end
   	end
 
   	def edit
+  		begin #例外処理設定
 	  	@movie_tag = MovieTag.find(params[:id])
 	    if @movie_tag.user.id != current_user.id
 	        redirect_to movie_tags_path
 	    end
+	    rescue Exception => e #何かしらのエラーが発生したら
+			redirect_to root_path #トップページに戻す
+			puts "エラーが発生しました！"
+		end
 	  end
 
 	def update

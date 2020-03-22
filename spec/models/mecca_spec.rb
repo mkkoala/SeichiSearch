@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Mecca, "モデルに関するテスト", type: :model do
+RSpec.describe Mecca ,"モデルに関するテスト", type: :model do
 
-    let(:user) { create(:user) }
-    let(:non_favorited_user) { create(:user) }
-    let(:mecca) { create(:mecca, user: user) }
-    let(:favorite) { create(:favorite, user: user, mecca: mecca) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:non_favorited_user) { FactoryBot.create(:user) }
+    let(:mecca) { FactoryBot.create(:mecca, user: user) }
+    let(:favorite) { FactoryBot.create(:favorite, user: user, mecca: mecca) }
 
 
 
@@ -19,6 +19,12 @@ RSpec.describe Mecca, "モデルに関するテスト", type: :model do
         context 'bodyカラム' do
             it '空欄でないこと' do
                 mecca.body = ''
+                expect(mecca.valid?).to eq false;
+            end
+        end
+        context 'mecca_imageカラム' do
+            it '空欄でないこと' do
+                mecca.mecca_image = ''
                 expect(mecca.valid?).to eq false;
             end
         end

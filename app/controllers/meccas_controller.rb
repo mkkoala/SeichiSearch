@@ -36,26 +36,16 @@ class MeccasController < ApplicationController
 	end
 
   	def show
-  		begin #例外処理設定
 	    @mecca = Mecca.find(params[:id])
 	    @mecca_comment = MeccaComment.new
 	    @user = @mecca.user
-		rescue Exception => e #何かしらのエラーが発生したら
-			redirect_to root_path #トップページに戻す
-			puts "エラーが発生しました！"
-		end
   	end
 
   	def edit
-  		begin #例外処理設定
 	  	@mecca = Mecca.find(params[:id])
 	    if @mecca.user.id != current_user.id
 	        redirect_to meccas_path
 	    end
-	    rescue Exception => e #何かしらのエラーが発生したら
-			redirect_to root_path #トップページに戻す
-			puts "エラーが発生しました！"
-		end
 	end
 
 	def update

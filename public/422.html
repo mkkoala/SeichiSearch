@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>ページが表示できません (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    color: #000066;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
     margin: 0;
+    background-image: url('https://girlysozai.com/png/dot_pattern1.png');
+    background-size: cover;
+    -webkit-background-size: cover;
   }
 
   .rails-default-error-page div.dialog {
     width: 95%;
-    max-width: 33em;
     margin: 4em auto 0;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .error-message-name,.error-message-text,.error-message-contact{
+    padding-top: 50px;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .error-message-link{
+    display: inline-block;
+    margin: 20px auto;
+    padding: 15px 40px;
+    text-decoration: none;
+    border: 1px;
+    border-radius: 5px;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    color: #fff;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .error-message-contact{
+    padding-bottom: 7em;
   }
+
+  img{
+    width: 20%;
+  }
+
   </style>
+  <script src="https://kit.fontawesome.com/5ea21ceab0.js" crossorigin="anonymous"></script> <!-- アイコンを表示する -->
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/422.html -->
   <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+    <h1 class="error-message-name">
+      ページが表示できません
+    </h1>
+    <img src="https://d20tvjw7jj0u2g.cloudfront.net/illust_data/001110/1110032/1110032.png?response-content-disposition=attachment&Expires=1584864172&Signature=SlhAxW3B2F9z58I9C1pShDtmI0j6LLExb-sTXpfGjCBrDWgX0HnN9yvhxTLxCmO9EVoXsaO5YcgpYngypgh8pYi7B7JZaC9cSt0Gqh2Lzu9dnv3HLF0D-0dUQ1uJ8qmLK8T1hN-7HlBPFAeDkEfK4l~BBafd7fxe2TFbChLuFLum8SsvbRlutP1~VLnoGEeWBPI95hGYh4fwuN902ON3NJJVtRgnWdeTbWbf0~YYSRC8jY40qUAoZjIu6QIwu6QJ4DsNDO~b-QypS0FPUKzozHW7LjJTWY3X1GwyM71Kt46WZsMqj6h4QZzTtIr6u7YWSSyXrki3AemEvvtxsCp7LA__&Key-Pair-Id=APKAII7N6YJY6RGVE7CA" alt="申し訳ありません">
+    <div class="error-message-text">
+      <p>ご不便をおかけして申し訳ありません。<br>一時的なエラーが発生し、ページを表示できません。</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <a class="error-message-link" href="/">トップに戻る</a>
+    <div class="error-message-contact">
+      <p>お問合せはこちら</p>
+      <i class=" far fa-envelope"></i>　xxxx@gmail.com<br>
+      <i class="fab fa-github-alt"></i>　@mkkoala[https://github.com/mkkoala]
+    </div>
   </div>
 </body>
 </html>

@@ -10,7 +10,8 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = true
+  # ローカルでもデプロイ環境と同じエラー画面を出したい時はfalse、逆に出したくない場合はtrue
+  config.consider_all_requests_local = false
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

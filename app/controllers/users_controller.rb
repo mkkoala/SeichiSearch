@@ -7,24 +7,14 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		begin #例外処理設定
-			@user = User.find(params[:id])
-	    	@meccas = @user.meccas.page(params[:page]).reverse_order
-	    	@movie_tags = @user.movie_tags.page(params[:page]).reverse_order
-	    	@favorites = @user.favorites.page(params[:page]).reverse_order
-		rescue Exception => e #何かしらのエラーが発生したら
-			redirect_to root_path #トップページに戻す
-			puts "エラーが発生しました！"
-		end
+		@user = User.find(params[:id])
+	  	@meccas = @user.meccas.page(params[:page]).reverse_order
+	  	@movie_tags = @user.movie_tags.page(params[:page]).reverse_order
+	  	@favorites = @user.favorites.page(params[:page]).reverse_order
 	end
 
 	def edit
-		begin #例外処理設定
 		@user = User.find(params[:id])
-		rescue Exception => e #何かしらのエラーが発生したら
-			redirect_to root_path #トップページに戻す
-			puts "エラーが発生しました！"
-		end
 	end
 
 	def update

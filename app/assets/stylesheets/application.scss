@@ -50,8 +50,9 @@ header{
 //ボディー全体
 body{
 	background: image-url('dot_pattern1.png');
-	background-size: cover;
-	-webkit-background-size: cover;
+	background-size: 100% auto;
+	// background-size: cover;
+	// -webkit-background-size: cover;
 }
 
 .body{

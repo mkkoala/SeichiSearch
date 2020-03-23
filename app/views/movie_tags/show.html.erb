@@ -6,14 +6,14 @@
 <% end %>
 
 <div class="row">
-	<div class="movie-img-col col-sm-4">
+	<div class="movie-col col-sm-4">
 
 		<%= attachment_image_tag @movie_tag, :movie_image, :fill, 300, 500, fallback: "no_image_2.jpg", size:'300x500', :class => "movie-img img-rounded" %>
 
 	</div>
 
 
-	<div class="col-sm-8">
+	<div class="movie-col col-sm-8">
 
 		<h4><%= @movie_tag.title %></h4>
 		<p><%= simple_format(@movie_tag.body) %></p>

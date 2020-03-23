@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-sm-6">
+  <div class="mecca-col col-sm-6">
     <!-- イメージ画像 -->
     <%= attachment_image_tag(@mecca, :mecca_image, :fill, 520, 400, fallback: "no_image_2.jpg", size:'520x400', :class => "mecca-img img-rounded") %>
 
@@ -22,7 +22,7 @@
     <!-- マップ表示部分　このdiv要素があとから地図に置き換わる -->
   </div>
 
-  <div class="col-sm-6">
+  <div class="mecca-col col-sm-6">
     <!-- 場所名 -->
     <h3><%= @mecca.name %></h3>
 

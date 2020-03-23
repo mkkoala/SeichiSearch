@@ -252,7 +252,7 @@ footer{
 
 
 
-
+//iphoneXの場合
 @media screen and (max-width:1024px){
 
 	//ヘッダー
@@ -292,7 +292,7 @@ footer{
 
 
 	//ヤード部分
-	.movie-col,.mecca-col{
+	.movie-col,.mecca-col,.col-xs-4{
 		width: 100%;
 	}
 	.mecca-img{

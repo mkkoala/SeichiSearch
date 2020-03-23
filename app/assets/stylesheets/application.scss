@@ -254,6 +254,13 @@ footer{
 
 
 @media screen and (max-width:1024px){
+
+	//ヘッダー
+	.navbar-right{
+		margin-right: -90px;
+	}
+
+
 	//アバウトページ
 	#swiper-container{
 	    height: 500px;

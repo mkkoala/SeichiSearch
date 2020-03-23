@@ -19,8 +19,13 @@ RSpec.describe 'MovieTagモデルのテスト', type: :model do
     end
     context 'movie_imageカラム' do
       it '空欄でないこと' do
-          movie_tag.movie_image = ''
+          movie_tag.movie_image_id = ''
           expect(movie_tag.valid?).to eq false;
+      end
+    end
+    context "データが正しく保存される" do
+      it "全て入力してあるので保存される" do
+        expect(movie_tag).to be_valid
       end
     end
   end

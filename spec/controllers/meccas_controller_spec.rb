@@ -16,6 +16,15 @@ RSpec.describe MeccasController, type: :controller do
 	        it 'タイトルが正しく表示されていること' do
 	            expect(response.body).to include("新規投稿")
 	        end
+	        it 'nameフォームが表示される' do
+		  		expect(response.body).to have_field 'mecca[name]'
+			end
+			it 'bodyフォームが表示される' do
+				expect(response.body).to have_field 'mecca[body]'
+			end
+			it '新規投稿ボタンが表示される' do
+				expect(response.body).to have_button '新規投稿'
+			end
 	    end
 
 	    context "未ログイン状態であれば、リダイレクトする" do
@@ -26,5 +35,5 @@ RSpec.describe MeccasController, type: :controller do
 	        	expect(response.status).to eq 302
 	        end
 	    end
-    end
+	end
 end

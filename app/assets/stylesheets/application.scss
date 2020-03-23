@@ -178,6 +178,13 @@ section{
 	margin-top: 15px;
 	font-size: 18px;
 }
+.creator-img{
+	margin-top: 20px;
+	width: 500px;
+	height: 300px;
+	background: image-url('yuru_neko6.png');
+	background-size: cover;
+}
 
 
 
@@ -241,5 +248,59 @@ footer{
 	font-family: 'Uzurafont';
 	font-size:15px;
 }
+
+
+
+
+
+@media screen and (max-width:1024px){
+	//アバウトページ
+	#swiper-container{
+	    height: 500px;
+	}
+
+	.main-visual-content{
+		height: 100%;
+	}
+
+	.main-visual-name {
+	  font-size: 7em;
+	}
+
+	.main-visual-text {
+		font-size: 1.5em;
+		margin-top: 10px;
+		padding: 20px;
+	}
+	.contents{
+		font-size: 16px;
+	}
+	.creator-img{
+		margin-top: 20px;
+		width: 300px;
+		height: 180px;
+	}
+
+
+
+
+	//ヤード部分
+	.movie-img-col,.col-sm-6,.col-sm-8{
+		width: 100%;
+	}
+	.mecca-img{
+		margin: 30px 0;
+		width: 100%;
+	}
+	.movie-img{
+		margin: 30px 0;
+	}
+}
+
+
+
+
+
+
 
 

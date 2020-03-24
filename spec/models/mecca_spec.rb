@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'モデルに関するテスト', type: :model do
+RSpec.describe 'Meccaモデルのテスト', type: :model do
   let(:user) { create(:user) }
   let(:non_favorited_user) { create(:user) }
   let!(:mecca) { build(:mecca, user_id: user.id) }
@@ -47,7 +47,7 @@ RSpec.describe 'モデルに関するテスト', type: :model do
     end
   end
 
-  describe '.favorited_by? いいね機能のテスト' do
+  describe 'いいね機能のテスト' do
     before do
       favorite
     end

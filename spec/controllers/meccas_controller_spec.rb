@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe MeccasController, type: :controller do
+RSpec.describe MeccasController,'Meccasコントローラーのテスト', type: :controller do
 
 	let(:user) { create(:user) }
 

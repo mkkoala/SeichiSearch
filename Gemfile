@@ -78,7 +78,7 @@ gem "refile-mini_magick"
 # ページング機能用gem
 gem 'kaminari','~> 1.1.1'
 # レイアウト用gem
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 # deviseの日本語化
 gem 'devise-i18n'

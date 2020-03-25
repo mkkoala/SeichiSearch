@@ -3,7 +3,7 @@ RSpec.describe MeccasController,'Meccasコントローラーのテスト', type:
 
 	let(:user) { create(:user) }
 
-    describe '新規投稿ページ' do
+    describe '聖地新規投稿ページ' do
 	    context "ログイン済みなのでページが正しく表示される" do
 	        before do
 	        	sign_in user
@@ -36,4 +36,33 @@ RSpec.describe MeccasController,'Meccasコントローラーのテスト', type:
 	        end
 	    end
 	end
+
+	describe '聖地一覧ページ' do
+	    context "ログイン済みなのでページが正しく表示される" do
+	        before do
+	        	sign_in user
+	        	get :index
+	        end
+	        it 'リクエストは200 OKとなること' do
+	        	expect(response.status).to eq 200
+	        end
+	        render_views
+	        it 'タイトルが正しく表示されていること' do
+	            expect(response.body).to include("聖地一覧")
+	        end
+	        it '映画タグサイドバーが正しく表示されていること' do
+	            expect(response.body).to include("映画タグ検索")
+	        end
+	    end
+
+	    context "未ログイン状態であれば、リダイレクトする" do
+	        before do
+	        	get :index
+	        end
+	        it 'リクエストは302 OKとなること' do
+	        	expect(response.status).to eq 302
+	        end
+	    end
+	end
+
 end

@@ -251,12 +251,11 @@ footer{
 }
 
 
-//スマートフォンの場合
+
 @media screen and (max-width:1199px){
 
 	//ヘッダー
 	.navbar-right{
-		// background-color: green;
 		margin-right: -40px;
 	}
 
@@ -304,18 +303,44 @@ footer{
 
 	//ヘッダー
 	.navbar-right{
-		// background-color: red;
 		margin-right: -90px;
 	}
-}
+
+	//アバウトページ
+	#swiper-container{
+	    height: 500px;
+	}
+
+	.main-visual-content{
+		height: 100%;
+	}
+
+	.main-visual-name {
+	  font-size: 7em;
+	}
+
+	.main-visual-text {
+		font-size: 1.5em;
+		margin-top: 10px;
+		padding: 20px;
+	}
+	.contents{
+		font-size: 16px;
+	}
+	.creator-img{
+		margin-top: 20px;
+		width: 300px;
+		height: 180px;
+	}
 
 
-@media screen and (max-width:767px){
-
-	//ヘッダー
-	.navbar-right{
-		// background-color: yellow;
-		margin-right: -90px;
+	//ヤード部分
+	.mecca-img{
+		margin: 30px 0;
+		width: 100%;
+	}
+	.movie-img{
+		margin: 30px 0;
 	}
 }
 

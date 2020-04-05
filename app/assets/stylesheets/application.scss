@@ -51,8 +51,6 @@ header{
 body{
 	background: image-url('dot_pattern1.png');
 	background-size: 100% auto;
-	// background-size: cover;
-	// -webkit-background-size: cover;
 }
 
 .body{
@@ -147,13 +145,13 @@ body{
 }
 
 .main-visual-name {
-  color: #fbfaf5;//非対応のブラウザでの文字色を設定
+  color: #fbfaf5;
   font-size: 9em;
   font-family: 'Uzurafont', cursive;
-  background: image-url('gradation.png');//使用する背景画像のURL
+  background: image-url('gradation.png');
   background-size: cover;
-  -webkit-background-clip: text;//テキストでくり抜く
-  -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main-visual-text {

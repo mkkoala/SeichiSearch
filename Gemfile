@@ -76,7 +76,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 # 画像加工用（サイズ調整など）gem
 gem "refile-mini_magick"
 # ページング機能用gem
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 # レイアウト用gem
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
